@@ -13,9 +13,11 @@
     "rhtmlBuildUtils": "Displayr/rhtmlBuildUtils#2.0.1"
   },
   "dependencies": {
+    "babel-eslint": "^10.0.1",
     "babel-polyfill": "6.26.0",
     "d3": "4.7.2",
     "es6-promise": "^3.2.1",
+    "eslint-config-defaults": "^9.0.0",
     "jquery": "2.2.2",
     "lodash": "4.6.1"
   }

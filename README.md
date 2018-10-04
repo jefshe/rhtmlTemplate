@@ -1,6 +1,6 @@
 # rhtmlTemplate
 
-An R HTMLWidget project template.
+An dodgy R HTMLWidget which has javascript errors 
 
 # Installation in R
 

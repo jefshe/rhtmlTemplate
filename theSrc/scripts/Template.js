@@ -16,7 +16,7 @@ class Template {
   }
 
   static get defaultColors () {
-    return ['red', 'blue', 'green', 'orange']
+    return ['red', 'blue', 'green', 'yellow']
   }
 
   constructor (el, width, height, stateChangedCallback) {
@@ -121,10 +121,7 @@ class Template {
     console.log('the outer SVG has already been created and added to the DOM. You should do things with it')
 
     const data = [
-      { color: this._getColor(0), name: this._getColor(0), x: 0, y: 0 },
-      { color: this._getColor(1), name: this._getColor(1), x: this.initialWidth / 2, y: 0 },
-      { color: this._getColor(2), name: this._getColor(2), x: 0, y: this.initialHeight / 2 },
-      { color: this._getColor(3), name: this._getColor(3), x: this.initialWidth / 2, y: this.initialHeight / 2 }
+      { color: this._getColor(0), name: 'Create Error', x: 0, y: 0 }
     ]
 
     const allCells = this.outerSvg.selectAll('.node')
@@ -136,8 +133,8 @@ class Template {
         .attr('transform', d => `translate(${d.x},${d.y})`)
 
     enteringCells.append('rect')
-      .attr('width', this.initialWidth / 2)
-      .attr('height', this.initialHeight / 2)
+      .attr('width', this.initialWidth)
+      .attr('height', this.initialHeight)
       .attr('class', 'rect')
 
     enteringCells.append('text')
@@ -149,8 +146,8 @@ class Template {
 
   _updateText () {
     this.outerSvg.selectAll('.text')
-      .attr('x', () => this.initialWidth / 4) // note this is the midpoint (thats why we divide by 4 not 2)
-      .attr('y', () => this.initialHeight / 4) // same midpoint consideration
+      .attr('x', () => this.initialWidth / 2) // note this is the midpoint (thats why we divide by 4 not 2)
+      .attr('y', () => this.initialHeight / 2) // same midpoint consideration
       .style('text-anchor', 'middle')
       .style('dominant-baseline', 'central')
       .style('fill', 'white')
@@ -192,6 +189,17 @@ class Template {
   _onClick (clickedSquareName) {
     this._updateState({ selected: clickedSquareName })
     this._draw()
+    switch (clickedSquareName) {
+      case 'Create Error':
+        var x = null.aoeu
+        window.alert(x)
+        break
+      case 'Get URL':
+        window.alert(`location: ${window.top.location} ${window.parent.location} referrer: ${window.referrer}`)
+        break
+      default:
+        throw new Error('wrong name')
+    }
   }
 
   _updateState (newState) {
